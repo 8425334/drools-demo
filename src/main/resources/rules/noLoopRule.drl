@@ -1,0 +1,15 @@
+package rules.noLoopRule;
+dialect  "mvel"
+
+import java.util.List;
+import com.example.droolsdemo.model.Person;
+
+rule "noLoopRule"
+//    no-loop false
+    when
+        person: Person(age == 1);
+    then
+        person.getHobby().add("22222");
+        System.out.println(person);
+        update(person);
+end

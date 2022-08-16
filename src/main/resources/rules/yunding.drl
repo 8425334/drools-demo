@@ -1,0 +1,8 @@
+package rules;
+dialect  "mvel"
+
+rule "yunding01"
+    when
+
+    then
+end

@@ -1,0 +1,57 @@
+package rules.hello;
+
+import com.example.droolsdemo.model.Person;
+import com.example.droolsdemo.model.Clazz;
+import java.util.List;
+
+global org.slf4j.Logger logger;
+global List<String> strs;
+
+    rule "test1"
+        when
+            eval(true)
+        then
+            System.out.println("hello world");
+    end
+
+    rule "test2"
+        when
+            $person: Person(age == 1)
+        then
+            System.out.println($person);
+            logger.info("person:{}", $person);
+        end
+
+    rule "test3"
+        when
+            eval(true)
+        then
+            logger.info("slf4j logging test");
+        end
+
+rule "operateRule"
+when
+   Person($hobbys: getHobby() contains "唱歌");
+then
+    logger.info("===== contains测试 =====");
+    logger.info($hobbys + "contains 唱歌");
+    logger.info("==== end contains test ====");
+end
+
+rule "rule2"
+when
+    Person($hobbys: getHobby() not contains "钓鱼");
+then
+    logger.info("===== not contains测试 =====");
+    logger.info($hobbys + "not contains 钓鱼");
+    logger.info("==== end not contains test ====");
+end
+
+rule "member"
+when
+    Person("唱歌" memberOf $hobbys: getHobby())
+then
+       logger.info("===== memberOf测试 =====");
+       logger.info($hobbys  + " memberOf 唱歌");
+       logger.info("==== end memberOf test ====");
+end

@@ -1,0 +1,12 @@
+package rules.matchs;
+
+import java.util.List;
+import java.lang.String;
+
+rule "matchs"
+when
+    $s : String($s matches "156.*")
+then
+    System.out.println("matches test");
+    System.out.println($s + " matches 张.*");
+end

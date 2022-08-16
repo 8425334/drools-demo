@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="rules" packages="rules.hello">
+        <ksession name="testTheHelloWorld" />
+    </kbase>
+
+    <kbase name="matchesRules" packages="rules.matchs">
+        <ksession name="testMatches" />
+    </kbase>
+
+    <kbase name="noLoopRule" packages="rules.noLoopRule">
+        <ksession name="noLoopRule" />
+    </kbase>
+</kmodule>
